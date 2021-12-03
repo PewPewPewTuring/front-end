@@ -1,0 +1,7 @@
+.tile {
+  height: 3rem;
+  width: 3rem;
+  background-color: #a4cbf2;
+  border-radius: .4rem;
+  z-index: 2;
+}
