@@ -4,6 +4,7 @@ import Player from './Player.js';
 import '../Styles/Map.css';
 
 const Map = () => {
+  const [tileGrid, setTileGrid] = useState([]);
   const tileNumbers = [];
   for (let i = 0; i < 225; i++) {
     if (i < 15) {
@@ -60,8 +61,6 @@ const Map = () => {
     n1, n2, n3, n4, n5, n6, n7, n8, n9, n10, n11, n12, n13, n14, n15,
     o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15,
   ] = tiles;
-
-  const tileGrid = useState([tiles]);
 
   const aTiles = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15];
   const bTiles = [b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15];
