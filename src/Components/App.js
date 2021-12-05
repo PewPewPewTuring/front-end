@@ -12,7 +12,6 @@ const App = () => {
       <header className="app-header">Header for Pew Pew Pew App</header>
         <Map />
         <Overlay />
-        <Player />
     </div>
   )
 }
