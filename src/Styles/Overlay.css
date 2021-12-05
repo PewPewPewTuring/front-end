@@ -1,0 +1,66 @@
+.overlay-container {
+  position: absolute;
+  width: 60rem;
+  height: 60rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 5%;
+  z-index: 3;
+}
+
+.overlay-tile-grid {
+  max-height: 60rem;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(15, 3rem);
+  grid-auto-rows: 3rem;
+  grid-gap: 0px;
+  justify-content: center;
+  opacity: 30%;
+}
+
+.overlay-tile {
+  height: 3rem;
+  width: 3rem;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+.a-tiles, .b-tiles, .c-tiles, .d-tiles,
+.e-tiles, .f-tiles, .g-tiles, .h-tiles,
+.i-tiles, .j-tiles, .k-tiles, .l-tiles,
+.m-tiles, .n-tiles, .o-tiles {
+  display: flex;
+  flex-direction: row;
+}
+
+.position {
+  background-color: green;
+}
+
+.blocked {
+  border-radius: 0rem;
+  background-color: #064949;
+}
+
+.right {
+  transform: rotate(90deg);
+}
+
+.down {
+  transform: rotate(180deg);
+}
+
+.left {
+  transform: rotate(270deg);
+}
+
+.up {
+  transform: rotate(0deg);
+}
+
+.item-acquired {
+  background-color: white;
+}
