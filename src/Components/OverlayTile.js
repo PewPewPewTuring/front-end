@@ -3,7 +3,7 @@ import '../Styles/Overlay.css';
 
 const OverlayTile = () => {
   return (
-    <div className="overlay-tile"></div>
+    <div></div>
   )
 }
 
