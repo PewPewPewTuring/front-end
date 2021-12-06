@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Components/App';
+import { Provider } from 'react-redux';
+import store from './Redux'; // import store from Redux file
 import reportWebVitals from './reportWebVitals';
 
+// pass store as a prop through provider to give access to App
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}> 
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
