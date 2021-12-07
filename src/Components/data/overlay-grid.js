@@ -1,5 +1,5 @@
 export const grid = [
-  <div className="overlay-tile overlay-tile-0"></div>,
+  <div className="overlay-tile overlay-tile-0" id="0"></div>,
   <div className="overlay-tile overlay-tile-1"></div>,
   <div className="overlay-tile overlay-tile-2"></div>,
   <div className="overlay-tile overlay-tile-3"></div>,

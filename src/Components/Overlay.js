@@ -20,7 +20,6 @@ const Overlay = () => {
 
   useEffect(() => {
     console.log(currentTile)
-
   }, [playerPositionIndex])
 
   const checkCollision = (desiredTarget) => {
@@ -30,10 +29,10 @@ const Overlay = () => {
     }
   };
 
+  console.log(overlayTiles[2]);
+
   if (navigationEnabled) {
     console.log('it worked!')
-
-
     allOverlayTiles = document.querySelectorAll('.overlay-tile');
     window.addEventListener('keydown', (event) => {
       currentTile = grid[playerPositionIndex];
@@ -58,7 +57,7 @@ const Overlay = () => {
           changeOrientation();
           currentTile = allOverlayTiles[playerPositionIndex - 1];
           changeOrientation(orientation);
-          playerPositionIndex -= 1;
+          setPlayerPositionIndex(playerPositionIndex - 1)
         };
       } else if (!rightBoundary && inputKey === 'ArrowRight') {
         orientation = 'right';
@@ -71,7 +70,7 @@ const Overlay = () => {
         if (!checkCollision(targetTile)) {
           currentTile = allOverlayTiles[playerPositionIndex - 15];
           changeOrientation(orientation);
-          playerPositionIndex -= 15;
+          setPlayerPositionIndex(playerPositionIndex - 15)
         };
       } else if (inputKey === 'ArrowDown' && playerPositionIndex < 70) {
         orientation = 'down';
@@ -79,7 +78,7 @@ const Overlay = () => {
         if (!checkCollision(targetTile)) {
           currentTile = allOverlayTiles[playerPositionIndex + 15];
           changeOrientation(orientation);
-          playerPositionIndex += 15;
+          setPlayerPositionIndex(playerPositionIndex + 15)
         };
       }
     })
@@ -103,6 +102,7 @@ const Overlay = () => {
     <div className="overlay-container">
       <div className="overlay-tile-grid">
         {grid}
+        <Player />
       </div>
     </div>
   )
