@@ -1,8 +1,8 @@
 export const grid = [
-  <div className="overlay-tile overlay-tile-0" id="0"></div>,
-  <div className="overlay-tile overlay-tile-1"></div>,
-  <div className="overlay-tile overlay-tile-2"></div>,
-  <div className="overlay-tile overlay-tile-3"></div>,
+  <div className='overlay-tile overlay-tile-0' id="0"></div>,
+  <div className='overlay-tile overlay-tile-1' id="1"></div>,
+  <div className='overlay-tile overlay-tile-2' id="2"></div>,
+  <div className='overlay-tile overlay-tile-3' id="3"></div>,
   <div className="overlay-tile overlay-tile-4"></div>,
   <div className="overlay-tile overlay-tile-5"></div>,
   <div className="overlay-tile overlay-tile-6"></div>,

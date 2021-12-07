@@ -26,6 +26,8 @@
   margin: 0px;
   padding: 0px;
   border: 0px;
+  background-color: aqua;
+  border: 1px solid black;
 }
 
 .a-tiles, .b-tiles, .c-tiles, .d-tiles,
@@ -36,8 +38,20 @@
   flex-direction: row;
 }
 
-.position {
+/* .position {
   background-color: green;
+} */
+
+/* .true {
+  background-color: red;
+} */
+
+.active {
+  background-color: red;
+}
+
+.wall {
+  background-color: black;
 }
 
 .blocked {

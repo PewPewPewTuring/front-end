@@ -7,10 +7,12 @@ import '../Styles/App.css';
 
 const App = () => {
 
+
+
   return (
     <div className="app">
       <header className="app-header">Header for Pew Pew Pew App</header>
-        <Map />
+        {/* <Map /> */}
         <Overlay />
     </div>
   )
