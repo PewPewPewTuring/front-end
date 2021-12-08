@@ -12,12 +12,7 @@ const TileContainer = ({ activeTiles }) => {
 
   let allTiles = []
   for (let i = 0; i < 225; i++) {
-    if (i === 14) {
-      allTiles.push(<Tile id={i} key={i} isActive={'wall'} />)
-
-    } else {
       allTiles.push(<Tile id={i} key={i} isActive={activeTile} />)
-    }
   }
   return allTiles
 }
