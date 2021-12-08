@@ -3,6 +3,7 @@ import Map from './Map';
 import Tile from './Tile';
 import Player from './Player';
 import Overlay from './Overlay';
+import TileContainer from './data/TileContainer';
 import '../Styles/App.css';
 
 const App = () => {
@@ -12,8 +13,9 @@ const App = () => {
   return (
     <div className="app">
       <header className="app-header">Header for Pew Pew Pew App</header>
+      <TileContainer />
         {/* <Map /> */}
-        <Overlay />
+        {/* <Overlay /> */}
     </div>
   )
 }
