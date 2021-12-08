@@ -1,4 +1,4 @@
-.game-container {
+.overlay-container {
   position: absolute;
   width: 60rem;
   height: 60rem;
@@ -6,12 +6,29 @@
   flex-direction: row;
   justify-content: center;
   top: 5%;
+  z-index: 3;
 }
 
-.tile-grid {
+.overlay-tile-grid {
+  max-height: 60rem;
   height: auto;
   display: grid;
+  grid-template-columns: repeat(15, 3rem);
+  grid-auto-rows: 3rem;
+  grid-gap: 0px;
   justify-content: center;
+  /* opacity: 30%; */
+  /* background-color: #2c8e8d; */
+}
+
+.overlay-tile {
+  height: 3rem;
+  width: 3rem;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  background-color: #2c8e8d;
+  border: 1px solid black;
 }
 
 .a-tiles, .b-tiles, .c-tiles, .d-tiles,
@@ -20,6 +37,14 @@
 .m-tiles, .n-tiles, .o-tiles {
   display: flex;
   flex-direction: row;
+}
+
+.active {
+  background-color: red;
+}
+
+.wall {
+  background-color: black;
 }
 
 .blocked {

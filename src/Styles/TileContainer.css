@@ -1,0 +1,21 @@
+.overlay-container {
+  position: absolute;
+  width: 60rem;
+  height: 60rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 5%;
+  z-index: 3;
+}
+
+.overlay-tile-grid {
+  max-height: 60rem;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(15, 3rem);
+  grid-auto-rows: 3rem;
+  grid-gap: 0px;
+  justify-content: center;
+  opacity: 30%;
+}
