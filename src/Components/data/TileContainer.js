@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import Tile from "../Tile";
-
-
+import Exit from "../Exit";
 
 const TileContainer = () => {
   const [activeStep, setActiveStep] = useState(0)
+  const [exitReached, setExitReached] = useState(false)
 
   useEffect(() => {
     // setNavigationEnabled(true);
     document.addEventListener('keydown', (e) => handleKeyDown(e))
   }, [])
+
+  useEffect(() => {
+    if (activeStep === 224) {
+      setExitReached(true);
+    }
+  }, [activeStep])
 
   const handleKeyDown = ({ key, code }) => {
     if (key === 'ArrowUp') {
@@ -28,20 +34,14 @@ const TileContainer = () => {
 
     }
   }
-  // const [activeTile, setActiveTile] = useState(null)
-  // let activeTile = null
-
-  // useEffect(() => {
-  //   checkActiveTile(activeTiles)
-  // }, [activeTiles])
-
-  // const checkActiveTile = (active) => {
-  //   activeTile = activeTiles
-  // }
 
   let allTiles = []
   for (let i = 0; i < 225; i++) {
-      allTiles.push(<Tile id={i} key={i} isActive={activeStep} />)
+      if (i === 224) {
+        allTiles.push(<Exit exitReached={exitReached}/>)
+      } else {
+        allTiles.push(<Tile id={i} key={i} isActive={activeStep} />)
+      }
   }
   return (
     <main className='overlay-container' >

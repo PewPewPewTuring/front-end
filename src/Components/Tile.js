@@ -12,7 +12,7 @@ const Tile = ({ id, isActive }) => {
 
   useEffect(() => {
     let isChanged = false
-
+    
     if (isActive === id) {
       setToRender(<Player key={'player'} />)
       console.log('render player', id)

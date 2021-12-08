@@ -22,13 +22,6 @@
   flex-direction: row;
 }
 
-.position {
-  background-image: none;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #915eff;
-}
-
 .blocked {
   border-radius: 0rem;
   background-color: #064949;

@@ -1,7 +1,7 @@
-.tile {
+.exit {
   height: 3rem;
   width: 3rem;
-  background-color: #2c8e8d;
+  background-color: black;
   border-radius: .4rem;
   z-index: 2;
 }
