@@ -9,14 +9,14 @@ const Tile = ({ id, isActive }) => {
   // Event listeners that will handle behavior
 
   useEffect(() => {
-    isActive === id ? setToRender(<Player key={'player'} />) : setToRender(null)
-    // if (typeof isActive === 'string') {
-    //   setIsTileType(isActive)
-    // } else if (typeof isActive === 'number') {
-    //   // isActive === id ? setIsTileType('active') : setIsTileType('overlay-tile')
-    //   toRender = isActive === id ? <Player /> : setIsTileType('overlay-tile')
-
-    // }
+    if (isActive === id) {
+      setToRender(<Player key={'player'} />)
+      console.log('render player', id)
+    } else if (isActive !== id && toRender !== null) {
+      setToRender(null)
+      console.log('set to null', id)
+    }
+    // isActive === id ? setToRender(<Player key={'player'} />) : setToRender(null)
   }, [isActive])
   return (
     <div className={isTileType} id={id}>{toRender}</div>
