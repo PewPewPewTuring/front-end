@@ -6,20 +6,19 @@ import Overlay from './Overlay';
 import TileContainer from './data/TileContainer';
 import Exit from './Exit';
 import '../Styles/App.css';
+import {levelOneComplete, setLevelOneComplete} from './Exit';
 
 const App = () => {
   const [levelOneComplete, setLevelOneComplete] = useState(false);
-  const [currentLevel, setCurrentLevel] = useState(1);
-  let levelOneCompleted = false;
 
   useEffect(() => {
-    levelOneCompleted = true;
+    console.log('Level completed')
   }, [levelOneComplete])
 
   return (
     <div className="app">
       <header className="app-header">Header for Pew Pew Pew App</header>
-      { levelOneCompleted === false && <TileContainer /> }
+      { levelOneComplete === false && <TileContainer /> }
         {/* <Map /> */}
         {/* <Overlay /> */}
     </div>

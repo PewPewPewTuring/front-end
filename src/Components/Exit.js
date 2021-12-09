@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import App from './App';
 import '../Styles/Exit.css';
 
-let levelComplete = false;
+export let levelComplete = false;
 
 const Exit = ({ exitReached }) => {
   const [levelOneComplete, setLevelOneComplete] = useState(false);
@@ -10,6 +10,7 @@ const Exit = ({ exitReached }) => {
   useEffect(() => {
     console.log('Reached: ', exitReached)
     setLevelOneComplete(true);
+    levelComplete = true;
   }, [exitReached])
 
   return (

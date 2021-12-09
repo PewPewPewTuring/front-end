@@ -1,7 +1,9 @@
 .exit {
   height: 3rem;
   width: 3rem;
-  background-color: black;
-  border-radius: .4rem;
+  background-image: url('../assets/exit.png');
+  background-size: cover;
+  background-repeat: repeat;
+  border: 1px solid black;
   z-index: 2;
 }

@@ -11,9 +11,9 @@ const Overlay = () => {
   // We may have to many moving parts.  Do we need a currentTile if the player position is already tracking this?
   // Have dynamic className.  If tile ID matches player position, change that className to active.
   const [playerPositionIndex, setPlayerPositionIndex] = useState(0);
-  const [activeStep, setActiveStep] = useState(0)
+  const [activeStep, setActiveStep] = useState(0);
   const [navigationEnabled, setNavigationEnabled] = useState(null);
-  const [overlayGrid, setOverlayGrid] = useState(null)
+  const [overlayGrid, setOverlayGrid] = useState(null);
   let overlayTiles = document.querySelectorAll('.overlay-tile');
   let allOverlayTiles;
   let orientation = 'up';
@@ -35,16 +35,12 @@ const Overlay = () => {
   const handleKeyDown = ({ key, code }) => {
     if (key === 'ArrowUp') {
       setActiveStep(prevActiveStep => prevActiveStep - 15)
-
     } else if (key === 'ArrowRight') {
       setActiveStep(prevActiveStep => prevActiveStep + 1)
-
     } else if (key === 'ArrowDown') {
       setActiveStep(prevActiveStep => prevActiveStep + 15)
-
     } else if (key === 'ArrowLeft') {
       setActiveStep(prevActiveStep => prevActiveStep - 1)
-
     } else if (code === 'Space') {
 
     }

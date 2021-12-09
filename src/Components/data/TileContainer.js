@@ -5,9 +5,11 @@ import Exit from "../Exit";
 const TileContainer = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [exitReached, setExitReached] = useState(false)
+  const [stepCount, setStepCount] = useState(0);
+  const leftBorder = [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225];
+  let tilePosition = 0;
 
   useEffect(() => {
-    // setNavigationEnabled(true);
     document.addEventListener('keydown', (e) => handleKeyDown(e))
   }, [])
 
@@ -18,18 +20,23 @@ const TileContainer = () => {
   }, [activeStep])
 
   const handleKeyDown = ({ key, code }) => {
-    if (key === 'ArrowUp') {
+    console.log(tilePosition);
+    if (key === 'ArrowUp' && tilePosition > 14) {
+      tilePosition -= 15;
       setActiveStep(prevActiveStep => prevActiveStep - 15)
-
-    } else if (key === 'ArrowRight') {
+      setStepCount(stepCount => stepCount + 1);
+    } else if (key === 'ArrowRight' && ((tilePosition + 1) % 15 !== 0)) {
+      tilePosition += 1;
       setActiveStep(prevActiveStep => prevActiveStep + 1)
-
-    } else if (key === 'ArrowDown') {
+      setStepCount(stepCount => stepCount + 1);
+    } else if (key === 'ArrowDown' && (tilePosition < 210)) {
+      tilePosition += 15;
       setActiveStep(prevActiveStep => prevActiveStep + 15)
-
-    } else if (key === 'ArrowLeft') {
+      setStepCount(stepCount => stepCount + 1);
+    } else if (key === 'ArrowLeft' && (tilePosition % 15 !== 0)) {
+      tilePosition -= 1;
       setActiveStep(prevActiveStep => prevActiveStep - 1)
-
+      setStepCount(stepCount => stepCount + 1);
     } else if (code === 'Space') {
 
     }
