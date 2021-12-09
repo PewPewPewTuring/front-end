@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import Tile from "../Tile";
 import Exit from "../Exit";
+import Breakaway from "../Breakaway";
 
 const TileContainer = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [exitReached, setExitReached] = useState(false)
+  const [stepCount, setStepCount] = useState(0)
+  let walls = [5, 20, 30, 31, 32, 35, 50, 62, 63, 64, 65];
+  let breakaway = 47;
+  let tilePosition = 0
 
   useEffect(() => {
-    // setNavigationEnabled(true);
     document.addEventListener('keydown', (e) => handleKeyDown(e))
   }, [])
 
@@ -18,18 +22,31 @@ const TileContainer = () => {
   }, [activeStep])
 
   const handleKeyDown = ({ key, code }) => {
-    if (key === 'ArrowUp') {
-      setActiveStep(prevActiveStep => prevActiveStep - 15)
-
-    } else if (key === 'ArrowRight') {
-      setActiveStep(prevActiveStep => prevActiveStep + 1)
-
-    } else if (key === 'ArrowDown') {
-      setActiveStep(prevActiveStep => prevActiveStep + 15)
-
-    } else if (key === 'ArrowLeft') {
-      setActiveStep(prevActiveStep => prevActiveStep - 1)
-
+    console.log(tilePosition);
+    if (key === 'ArrowUp' && tilePosition > 14) {
+      if (!walls.includes(tilePosition - 15)) {
+        tilePosition -= 15;
+        setActiveStep(prevActiveStep => prevActiveStep - 15)
+        setStepCount(stepCount => stepCount + 1);
+      }
+    } else if (key === 'ArrowRight' && ((tilePosition + 1) % 15 !== 0)) {
+      if (!walls.includes(tilePosition + 1)) {
+        tilePosition += 1;
+        setActiveStep(prevActiveStep => prevActiveStep + 1)
+        setStepCount(stepCount => stepCount + 1);
+      }
+    } else if (key === 'ArrowDown' && (tilePosition < 210)) {
+      if (!walls.includes(tilePosition + 15)) {
+        tilePosition += 15;
+        setActiveStep(prevActiveStep => prevActiveStep + 15)
+        setStepCount(stepCount => stepCount + 1);
+      }
+    } else if (key === 'ArrowLeft' && (tilePosition % 15 !== 0)) {
+      if (!walls.includes(tilePosition - 1)) {
+        tilePosition -= 1;
+        setActiveStep(prevActiveStep => prevActiveStep - 1)
+        setStepCount(stepCount => stepCount + 1);
+      }
     } else if (code === 'Space') {
 
     }
@@ -37,8 +54,12 @@ const TileContainer = () => {
 
   let allTiles = []
   for (let i = 0; i < 225; i++) {
-      if (i === 224) {
+      if (walls.includes(i)) {
+        allTiles.push(<div className="wall"></div>)
+      } else if (i === 224) {
         allTiles.push(<Exit exitReached={exitReached}/>)
+      } else if (i === 47){
+        allTiles.push(<Breakaway />)
       } else {
         allTiles.push(<Tile id={i} key={i} isActive={activeStep} />)
       }
