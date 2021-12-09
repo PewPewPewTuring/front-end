@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Tile from "../Tile";
 import Exit from "../Exit";
+import Breakaway from "../Breakaway";
 
 const TileContainer = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [exitReached, setExitReached] = useState(false)
   const [stepCount, setStepCount] = useState(0)
-  let walls = [5, 20, 30, 31, 32, 35, 47, 50]
+  let walls = [5, 20, 30, 31, 32, 35, 50, 62, 63, 64, 65];
+  let breakaway = 47;
   let tilePosition = 0
 
   useEffect(() => {
@@ -56,6 +58,8 @@ const TileContainer = () => {
         allTiles.push(<div className="wall"></div>)
       } else if (i === 224) {
         allTiles.push(<Exit exitReached={exitReached}/>)
+      } else if (i === 47){
+        allTiles.push(<Breakaway />)
       } else {
         allTiles.push(<Tile id={i} key={i} isActive={activeStep} />)
       }
