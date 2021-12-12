@@ -2,16 +2,12 @@ import React, { useState, useEffect } from 'react'
 import App from './App';
 import '../Styles/Exit.css';
 
-export let levelComplete = false;
-
-const Exit = ({ exitReached }) => {
-  const [levelOneComplete, setLevelOneComplete] = useState(false);
-
+const Exit = ({ tilePosition, reachExit }) => {
   useEffect(() => {
-    console.log('Reached: ', exitReached)
-    setLevelOneComplete(true);
-    levelComplete = true;
-  }, [exitReached])
+    if (tilePosition === 224) {
+      console.log('Heeeeey nice')
+    }
+  }, [tilePosition])
 
   return (
     <div className="exit level-one"></div>

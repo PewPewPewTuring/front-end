@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import Tile from "../Tile";
 import Exit from "../Exit";
 import Breakaway from "../Breakaway";
+import Counter from "../Counter";
 
-const TileContainer = () => {
+export let tilePosition = 0;
+
+const TileContainer = ({ reachExit }) => {
   const [activeStep, setActiveStep] = useState(0)
-  const [exitReached, setExitReached] = useState(false)
   const [stepCount, setStepCount] = useState(0)
-  let walls = [5, 20, 30, 31, 32, 35, 50, 62, 63, 64, 65];
+  let walls = [5, 12, 20, 22, 24, 27, 28, 30, 31, 32, 35, 37, 40, 50, 52, 57, 62, 63, 64, 65, 67, 68, 69, 70, 71, 72, 82, 90, 91, 92, 93, 94, 95, 96, 97, 106, 115, 116, 117, 118, 119, 134, 136, 138, 139, 140, 141, 142, 143, 144, 145, 151, 156, 162, 166, 167, 168, 173, 178, 183, 188, 189, 190, 191, 192, 193, 198, 199, 200, 201, 203, 202, 210];
   let breakaway = 47;
-  let tilePosition = 0
 
   useEffect(() => {
     document.addEventListener('keydown', (e) => handleKeyDown(e))
@@ -17,7 +18,7 @@ const TileContainer = () => {
 
   useEffect(() => {
     if (activeStep === 224) {
-      setExitReached(true);
+      console.log('reached')
     }
   }, [activeStep])
 
@@ -57,8 +58,8 @@ const TileContainer = () => {
       if (walls.includes(i)) {
         allTiles.push(<div className="wall"></div>)
       } else if (i === 224) {
-        allTiles.push(<Exit exitReached={exitReached}/>)
-      } else if (i === 47){
+        allTiles.push(<Exit tilePosition={tilePosition}/>)
+      } else if (i === 47 || i === 42 || i === 108 || i === 123 || i === 130 || i === 165 || i === 179){
         allTiles.push(<Breakaway />)
       } else {
         allTiles.push(<Tile id={i} key={i} isActive={activeStep} />)

@@ -1,0 +1,8 @@
+.counter {
+  position: absolute;
+  font-family: 'Rock Salt', cursive;
+  font-size: 1rem;
+  color: white;
+  bottom: 12%;
+  left: 45%;
+}

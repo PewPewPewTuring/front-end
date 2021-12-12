@@ -5,6 +5,8 @@ import Player from './Player';
 import Overlay from './Overlay';
 import TileContainer from './data/TileContainer';
 import Exit from './Exit';
+import Counter from './Counter';
+import '../Styles/Counter.css'
 import '../Styles/App.css';
 import {levelOneComplete, setLevelOneComplete} from './Exit';
 
@@ -17,15 +19,11 @@ const App = () => {
 
   return (
     <div className="app">
-      <header className="app-header">Header for Pew Pew Pew App</header>
+      <header className="app-header">Escape the House!</header>
       { levelOneComplete === false && <TileContainer /> }
-        {/* <Map /> */}
-        {/* <Overlay /> */}
+      <Counter />
     </div>
   )
 }
 
 export default App
-
-
-// comment
