@@ -8,19 +8,19 @@ import Exit from './Exit';
 import Counter from './Counter';
 import '../Styles/Counter.css'
 import '../Styles/App.css';
-import {levelOneComplete, setLevelOneComplete} from './Exit';
+
+export let hasReachedExit = false;
 
 const App = () => {
-  const [levelOneComplete, setLevelOneComplete] = useState(false);
 
   useEffect(() => {
-    console.log('Level completed')
-  }, [levelOneComplete])
+    console.log('App registered')
+  }, [hasReachedExit])
 
   return (
     <div className="app">
       <header className="app-header">Escape the House!</header>
-      { levelOneComplete === false && <TileContainer /> }
+      <TileContainer />
       <Counter />
     </div>
   )

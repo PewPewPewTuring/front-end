@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import App from './App';
+import { hasReachedExit } from './App';
 import '../Styles/Exit.css';
 
 const Exit = ({ tilePosition, reachExit }) => {
   useEffect(() => {
     if (tilePosition === 224) {
-      console.log('Heeeeey nice')
+      reachExit(true);
     }
   }, [tilePosition])
 
