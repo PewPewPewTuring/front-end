@@ -7,24 +7,28 @@ import OverlayTile from './OverlayTile';
 import TileContainer from './data/TileContainer.js';
 import Exit from './Exit.js';
 
+import levelComplete from './Exit.js';
+
 const Overlay = () => {
-  // We may have to many moving parts.  Do we need a currentTile if the player position is already tracking this?
-  // Have dynamic className.  If tile ID matches player position, change that className to active.
   const [playerPositionIndex, setPlayerPositionIndex] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
   const [navigationEnabled, setNavigationEnabled] = useState(null);
   const [overlayGrid, setOverlayGrid] = useState(null);
+  const [exitReached, setExitReached] = useState(false);
   let overlayTiles = document.querySelectorAll('.overlay-tile');
   let allOverlayTiles;
   let orientation = 'up';
   let blockedOverlayTiles = [];
   let itemTiles = [];
 
-
   useEffect(() => {
     setNavigationEnabled(true);
     document.addEventListener('keydown', (e) => handleKeyDown(e))
   }, [])
+
+  const reachExit = () => {
+    setExitReached(true);
+  }
 
   const checkCollision = (desiredTarget) => {
     if (blockedOverlayTiles.includes(desiredTarget)) {
@@ -46,15 +50,16 @@ const Overlay = () => {
     }
   }
 
-  if (activeStep < 224) {
-    console.log(true);
+  if (activeStep === 224) {
+    reachExit();
   }
 
   return (
     <div className="overlay-container">
       <div className="overlay-tile-grid">
-        <TileContainer activeTiles={activeStep} />
-        <Exit activeStep={activeStep}/>
+        {levelComplete === false && <TileContainer activeTiles={activeStep} />}
+        {levelComplete === false && <Exit activeStep={activeStep} reachExit={reachExit} />}
+        {levelComplete === true && <div>nice</div>}
       </div>
     </div>
   )

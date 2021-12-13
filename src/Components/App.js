@@ -5,27 +5,25 @@ import Player from './Player';
 import Overlay from './Overlay';
 import TileContainer from './data/TileContainer';
 import Exit from './Exit';
+import Counter from './Counter';
+import '../Styles/Counter.css'
 import '../Styles/App.css';
-import {levelOneComplete, setLevelOneComplete} from './Exit';
+
+export let hasReachedExit = false;
 
 const App = () => {
-  const [levelOneComplete, setLevelOneComplete] = useState(false);
 
   useEffect(() => {
-    console.log('Level completed')
-  }, [levelOneComplete])
+    console.log('App registered')
+  }, [hasReachedExit])
 
   return (
     <div className="app">
-      <header className="app-header">Header for Pew Pew Pew App</header>
-      { levelOneComplete === false && <TileContainer /> }
-        {/* <Map /> */}
-        {/* <Overlay /> */}
+      <header className="app-header">Escape the House!</header>
+      <TileContainer />
+      <Counter />
     </div>
   )
 }
 
 export default App
-
-
-// comment

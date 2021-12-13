@@ -19,3 +19,8 @@
   justify-content: center;
   opacity: 30%;
 }
+
+.score-card {
+  font-size: 2rem;
+  color: white;
+}
