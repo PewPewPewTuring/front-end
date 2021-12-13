@@ -6,10 +6,11 @@ import Counter from "../Counter";
 import { useSelector, useDispatch } from 'react-redux';
 import { moveUp, moveRight, moveDown, moveLeft, addToStepCount } from '../../actions';
 
-// export let tilePosition = 0;
+export let tilePosition = 0;
 
 const TileContainer = ({ reachExit }) => {
   const activeTile = useSelector(state => state.activeTile)
+  tilePosition = activeTile
   const stepCount = useSelector(state => state.stepCount)
   const levelOneComplete = useSelector(state => state.levelOneComplete)
   const dispatch = useDispatch()
