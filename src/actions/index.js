@@ -24,6 +24,18 @@ export const moveLeft = () => {
    type: 'LEFT'
  }
 }
+
+export const addToStepCount = () => {
+  return {
+    type: 'STEP'
+  }
+}
+
+export const completeLevelOne = () => {
+  return {
+    type: 'LEVEL_ONE_COMPLETE'
+  }
+}
  
 export const getTileInfo = (tilePoints) => {
  return {
