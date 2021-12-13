@@ -3,6 +3,8 @@ body {
   width: 100%;
   background-color: #07507a;
   overflow: hidden;
+  font-family: 'Comfortaa', cursive;
+  line-height: 1.5rem;
 }
 
 .app {
@@ -15,12 +17,14 @@ body {
   font-family: 'Rock Salt', cursive;
   color: white;
   font-size: 2rem;
+  margin-top: 2rem;
 }
 
 .score-card {
   position: absolute;
   font-size: 2rem;
   color: white;
-  padding-top: 5rem;
+  padding-top: 3rem;
   text-align: center;
+  line-height: 1.2rem;
 }

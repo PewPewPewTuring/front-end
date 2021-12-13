@@ -74,9 +74,10 @@ const TileContainer = ({ reachExit }) => {
       }
       {levelOneComplete &&
         <div className="score-card">
-          <div>Way to go!</div>
-          <div>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</div>
-          <div>You moved {stepCount} spaces to get to the end.</div>
+          <p>Way to go!</p>
+          <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
+          <p>Spaces moved: {stepCount}</p>
+          <p>Total score: </p>
         </div>
       }
     </main>
