@@ -25,8 +25,13 @@ const App = () => {
   }
 
   useEffect(() => {
+    effect
+  }, [])
+
+  useEffect(() => {
     console.log('App registered')
   }, [hasReachedExit])
+
 
   return (
     <div className="app">
