@@ -18,8 +18,10 @@ const App = () => {
   const startGame = (event) => {
     event.preventDefault();
     setGameStarted(true);
-    console.log('This worked my dude!')
-    console.log(gameStarted);
+  }
+
+  const endGame = () => {
+    setGameStarted(false);
   }
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const App = () => {
     <div className="app">
       {!gameStarted && <LandingPage startGame={startGame} />}
       {gameStarted && <header className="app-header">Escape the House!</header>}
-      {gameStarted && <TileContainer />}
+      {gameStarted && <TileContainer endGame={endGame}/>}
       {gameStarted && <Counter />}
     </div>
   )

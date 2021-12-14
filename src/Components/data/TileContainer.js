@@ -6,7 +6,7 @@ import Counter from "../Counter";
 
 export let tilePosition = 0;
 
-const TileContainer = ({ reachExit }) => {
+const TileContainer = ({ reachExit, endGame }) => {
   const [activeStep, setActiveStep] = useState(0)
   const [stepCount, setStepCount] = useState(0)
   const [levelOneComplete, setLevelOneComplete] = useState(false);
@@ -21,6 +21,10 @@ const TileContainer = ({ reachExit }) => {
       console.log('reached')
     }
   }, [activeStep])
+
+  const resetGame = () => {
+    document.location.reload();
+  }
 
   const handleKeyDown = ({ key, code }) => {
     console.log(tilePosition);
@@ -77,7 +81,7 @@ const TileContainer = ({ reachExit }) => {
           <p>Way to go!</p>
           <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
           <p>Spaces moved: {stepCount}</p>
-          <p>Total score: </p>
+          <p><button className="reset-game" id="resetGame" onClick={resetGame}>SUBMIT & RESTART</button></p>
         </div>
       }
     </main>
