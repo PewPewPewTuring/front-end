@@ -14,6 +14,8 @@ const TileContainer = ({ reachExit }) => {
   tilePosition = activeTile
   const stepCount = useSelector(state => state.stepCount)
   const levelOneComplete = useSelector(state => state.levelOneComplete)
+  const currentPlayer = useSelector(state => state.currentPlayer)
+  const finalTime = useSelector(state => state.finalTime)
   const dispatch = useDispatch()
   // const [activeStep, setActiveStep] = useState(0)
   // const [stepCount, setStepCount] = useState(0)
@@ -31,16 +33,16 @@ const TileContainer = ({ reachExit }) => {
   }, [tilePosition])
 
   const resetGame = async () => {
-//       let gameInfo = {
-//      payload: {
-//       player_name: "Rick",
-//       time_lapsed: 58,
-//       moves_taken: 74,
-//       hidden_items_found: 1
-//   }
-// }
+    let gameInfo = {
+      payload: {
+        player_name: currentPlayer,
+        time_lapsed: finalTime,
+        moves_taken: stepCount,
+        hidden_items_found: 0
+      }
+    }
 
-    await submitGame()
+    await submitGame(gameInfo)
     document.location.reload();
   }
 
