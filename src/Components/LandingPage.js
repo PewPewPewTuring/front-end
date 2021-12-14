@@ -1,8 +1,15 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateCurrentPlayer } from '../actions';
 import '../Styles/LandingPage.css';
 
 const LandingPage = ({ startGame }) => {
   const leaderBoard = useSelector(state => state.leaderBoard)
+  const currentPlayer = useSelector(state => state.currentPlayer)
+  const dispatch = useDispatch()
+
+  const handleChange = ({ value }) => {
+    dispatch(updateCurrentPlayer(value))
+  }
 
   const topLeaders = leaderBoard.map((leader) => {
     return (
@@ -32,7 +39,7 @@ const LandingPage = ({ startGame }) => {
       <div className="name-form">
         <form>
           <label for="player_name">Player Name:</label><br></br>
-          <input type="text" id="player_name" name="player_name"></input><br></br>
+          <input type="text" id="player_name" name="player_name"  onChange={(e) => handleChange(e.target)} value={currentPlayer} ></input><br></br>
           <button className="start-game-button" value="Start" onClick={startGame}>START!</button><br></br>
         </form>
       </div>

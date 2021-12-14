@@ -5,7 +5,8 @@ export const initialState = {
  totalPoints: 0,
  stepCount: 0,
  levelOneComplete: false,
- leaderBoard: []
+ leaderBoard: [],
+ currentPlayer: ''
 }
  
 export const appReducer = (state = initialState, action) => {
@@ -24,6 +25,8 @@ export const appReducer = (state = initialState, action) => {
       return {...state, levelOneComplete: true}
     case 'GET_LEADER_BOARD':
       return {...state, leaderBoard: action.payload}
+    case 'CURRENT_PLAYER':
+      return {...state, currentPlayer: action.payload}
    // case 'ACTIVE_TILE_POINTS':
    //   return state.totalPoints + payload
    default:

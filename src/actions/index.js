@@ -43,6 +43,13 @@ export const updateLeaderBoard = (leaders) => {
     payload: leaders
   }
 }
+
+export const updateCurrentPlayer = (name) => {
+  return {
+    type: 'CURRENT_PLAYER',
+    payload: name
+  }
+}
  
 export const getTileInfo = (tilePoints) => {
  return {

@@ -5,6 +5,7 @@ import Breakaway from "../Breakaway";
 import Counter from "../Counter";
 import { useSelector, useDispatch } from 'react-redux';
 import { moveUp, moveRight, moveDown, moveLeft, addToStepCount } from '../../actions';
+import { submitGame } from '../../apiCalls/apiCalls';
 
 export let tilePosition = 0;
 
@@ -29,7 +30,17 @@ const TileContainer = ({ reachExit }) => {
     }
   }, [tilePosition])
 
-  const resetGame = () => {
+  const resetGame = async () => {
+//       let gameInfo = {
+//      payload: {
+//       player_name: "Rick",
+//       time_lapsed: 58,
+//       moves_taken: 74,
+//       hidden_items_found: 1
+//   }
+// }
+
+    await submitGame()
     document.location.reload();
   }
 
