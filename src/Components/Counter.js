@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateFinalTime } from '../actions';
 import '../Styles/Counter.css';
 // import { useSelector } from 'react-redux';
 import { tilePosition } from './data/TileContainer.js';
 
 const Counter = () => {
-  // const activeTile = useSelector(state => state.activeTile)
+  const dispatch = useDispatch()
+
   let counter = 0;
   let timer = setInterval(() => {
     counter += 1;
@@ -13,6 +16,7 @@ const Counter = () => {
     document.getElementById('counterNumber').innerHTML = `${counter}`;
     if (tilePosition === 224) {
       const finalTime = counter;
+      dispatch(updateFinalTime(finalTime))
       clearInterval(timer);
       console.log('FINAL: ', finalTime);
     }

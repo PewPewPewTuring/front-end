@@ -50,6 +50,13 @@ export const updateCurrentPlayer = (name) => {
     payload: name
   }
 }
+
+export const updateFinalTime = (time) => {
+  return {
+    type: 'FINAL_TIME',
+    payload: time
+  }
+}
  
 export const getTileInfo = (tilePoints) => {
  return {
