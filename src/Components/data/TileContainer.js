@@ -24,42 +24,42 @@ const TileContainer = ({ reachExit }) => {
   }, [])
 
   useEffect(() => {
-    if (activeTile === 224) {
-      console.log('reached')
+    if (tilePosition === 224) {
+      // console.log('reached')
     }
-  }, [activeTile])
+  }, [tilePosition])
 
   const handleKeyDown = ({ key, code }) => {
-    console.log(activeTile);
-    if (key === 'ArrowUp' && activeTile > 14) {
-      if (!walls.includes(activeTile - 15)) {
-        // tilePosition -= 15;
+    if (key === 'ArrowUp' && tilePosition > 14) {
+      if (!walls.includes(tilePosition - 15)) {
         dispatch(moveUp())
         dispatch(addToStepCount())
+        // tilePosition -= 15;
+        // console.log(tilePosition);
         // setActiveStep(prevActiveStep => prevActiveStep - 15)
         // setStepCount(stepCount => stepCount + 1);
       }
-    } else if (key === 'ArrowRight' && ((activeTile + 1) % 15 !== 0)) {
-      if (!walls.includes(activeTile + 1)) {
-        // tilePosition += 1;
+    } else if (key === 'ArrowRight' && ((tilePosition + 1) % 15 !== 0)) {
+      if (!walls.includes(tilePosition + 1)) {
         dispatch(moveRight())
         dispatch(addToStepCount())
+        // tilePosition += 1;
         // setActiveStep(prevActiveStep => prevActiveStep + 1)
         // setStepCount(stepCount => stepCount + 1);
       }
-    } else if (key === 'ArrowDown' && (activeTile < 210)) {
-      if (!walls.includes(activeTile + 15)) {
-        // tilePosition += 15;
+    } else if (key === 'ArrowDown' && (tilePosition < 210)) {
+      if (!walls.includes(tilePosition + 15)) {
         dispatch(moveDown())
         dispatch(addToStepCount())
+        // tilePosition += 15;
         // setActiveStep(prevActiveStep => prevActiveStep + 15)
         // setStepCount(stepCount => stepCount + 1);
       }
-    } else if (key === 'ArrowLeft' && (activeTile % 15 !== 0)) {
-      if (!walls.includes(activeTile - 1)) {
-        // tilePosition -= 1;
+    } else if (key === 'ArrowLeft' && (tilePosition % 15 !== 0)) {
+      if (!walls.includes(tilePosition - 1)) {
         dispatch(moveLeft())
         dispatch(addToStepCount())
+        // tilePosition -= 1;
         // setActiveStep(prevActiveStep => prevActiveStep - 1)
         // setStepCount(stepCount => stepCount + 1);
       }
