@@ -1,0 +1,33 @@
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  margin: 5rem;
+  margin-top: 3rem;
+}
+
+.title {
+  font-family: 'Rock Salt';
+}
+
+.leaderboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+.start-game-button {
+  margin-top: 1rem;
+}

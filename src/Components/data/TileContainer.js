@@ -29,6 +29,10 @@ const TileContainer = ({ reachExit }) => {
     }
   }, [tilePosition])
 
+  const resetGame = () => {
+    document.location.reload();
+  }
+
   const handleKeyDown = ({ key, code }) => {
     if (key === 'ArrowUp' && tilePosition > 14) {
       if (!walls.includes(tilePosition - 15)) {
@@ -91,9 +95,10 @@ const TileContainer = ({ reachExit }) => {
       }
       {levelOneComplete &&
         <div className="score-card">
-          <div>Way to go!</div>
-          <div>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</div>
-          <div>You moved {stepCount} spaces to get to the end.</div>
+          <p>Way to go!</p>
+          <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
+          <p>Spaces moved: {stepCount}</p>
+          <p><button className="reset-game" id="resetGame" onClick={resetGame}>SUBMIT & RESTART</button></p>
         </div>
       }
     </main>
