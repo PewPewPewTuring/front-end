@@ -1,6 +1,18 @@
+import { useSelector } from 'react-redux';
 import '../Styles/LandingPage.css';
 
 const LandingPage = ({ startGame }) => {
+  const leaderBoard = useSelector(state => state.leaderBoard)
+
+  const topLeaders = leaderBoard.map((leader) => {
+    return (
+      <tr key={leader.id}>
+        <td>{leader.player_name}</td>
+        <td>{leader.score}</td>
+      </tr>
+    ) 
+  })
+
   return (
     <div className="landing-page">
       <h1 className="title">Welcome to Escape the House!</h1>
@@ -13,46 +25,7 @@ const LandingPage = ({ startGame }) => {
               <th className="leaderboard-header">Player Name</th>
               <th className="leaderboard-header">Score</th>
             </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[0].player_name</td>
-              <td className="leaderboard-data">data.games[0].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[1].player_name</td>
-              <td className="leaderboard-data">data.games[1].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[2].player_name</td>
-              <td className="leaderboard-data">data.games[2].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[3].player_name</td>
-              <td className="leaderboard-data">data.games[3].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[4].player_name</td>
-              <td className="leaderboard-data">data.games[4].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[5].player_name</td>
-              <td className="leaderboard-data">data.games[5].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[6].player_name</td>
-              <td className="leaderboard-data">data.games[6].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[7].player_name</td>
-              <td className="leaderboard-data">data.games[7].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[8].player_name</td>
-              <td className="leaderboard-data">data.games[8].score</td>
-            </tr>
-            <tr>
-              <td className="leaderboard-data">data.games[9].player_name</td>
-              <td className="leaderboard-data">data.games[9].score</td>
-            </tr>
+            {topLeaders}
           </table>
         </div>
       </div>
