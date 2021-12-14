@@ -28,3 +28,9 @@ body {
   text-align: center;
   line-height: 1.2rem;
 }
+
+.wall {
+  background-image: url('../assets/wall-new.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -1,7 +1,7 @@
 .overlay-tile {
   height: 3rem;
   width: 3rem;
-  background: url('../assets/wood-floor.png');
+  background: url('../assets/carpet.png');
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 2;

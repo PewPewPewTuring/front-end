@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { moveUp, moveRight, moveDown, moveLeft, addToStepCount } from '../../actions';
 
 export let tilePosition = 0;
+export let direction = 'right';
 
 const TileContainer = ({ reachExit, resetGame }) => {
   const activeTile = useSelector(state => state.activeTile)
@@ -43,6 +44,7 @@ const TileContainer = ({ reachExit, resetGame }) => {
       if (!walls.includes(tilePosition + 1)) {
         dispatch(moveRight())
         dispatch(addToStepCount())
+        direction = 'right';
         // tilePosition += 1;
         // setActiveStep(prevActiveStep => prevActiveStep + 1)
         // setStepCount(stepCount => stepCount + 1);
@@ -59,6 +61,7 @@ const TileContainer = ({ reachExit, resetGame }) => {
       if (!walls.includes(tilePosition - 1)) {
         dispatch(moveLeft())
         dispatch(addToStepCount())
+        direction = 'left'
         // tilePosition -= 1;
         // setActiveStep(prevActiveStep => prevActiveStep - 1)
         // setStepCount(stepCount => stepCount + 1);
@@ -79,7 +82,7 @@ const TileContainer = ({ reachExit, resetGame }) => {
       } else if (i === 47 || i === 42 || i === 108 || i === 123 || i === 130 || i === 165 || i === 179){
         allTiles.push(<Breakaway />)
       } else {
-        allTiles.push(<Tile id={i} key={i} />)
+        allTiles.push(<Tile id={i} key={i} direction={direction}/>)
       }
   }
   return (

@@ -17,7 +17,9 @@ const App = () => {
 
   const startGame = (event) => {
     event.preventDefault();
-    setGameStarted(true);
+    if (document.getElementById('playerName').value) {
+      setGameStarted(true);
+    }
   }
 
   const endGame = () => {

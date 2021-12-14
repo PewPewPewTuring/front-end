@@ -2,6 +2,12 @@
   position: absolute;
   height: 3rem;
   width: 3rem;
-  background-color: #9ef7f7;
+  background-image: url('../assets/escape_mc_right.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: .5rem;
+}
+
+.left {
+  background-image: url('../assets/escape_mc_left.png')
 }

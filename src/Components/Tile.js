@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Player from './Player';
 import '../Styles/Tile.css';
 
-const Tile = ({ id, isActive }) => {
+const Tile = ({ id, isActive, direction }) => {
   const activeTile = useSelector(state => state.activeTile)
   const [toRender, setToRender] = useState(null)
   let update = activeTile !== id ? false : true
@@ -14,9 +14,9 @@ const Tile = ({ id, isActive }) => {
 
   useEffect(() => {
     let isChanged = false
-    
+
     if (activeTile === id) {
-      setToRender(<Player key={'player'} />)
+      setToRender(<Player key='player' direction={direction} />)
       console.log('render player', id)
       return isChanged = true
 
