@@ -4,9 +4,10 @@ import { hasReachedExit } from './App';
 import { useSelector, useDispatch } from 'react-redux';
 import { completeLevelOne } from '../actions';
 import '../Styles/Exit.css';
-
-const Exit = ({ tilePosition, reachExit }) => {
+// { tilePosition, reachExit }
+const Exit = () => {
   const activeTile = useSelector(state => state.activeTile)
+  let tilePosition = activeTile
   const dispatch = useDispatch()
   
   useEffect(() => {
@@ -15,7 +16,7 @@ const Exit = ({ tilePosition, reachExit }) => {
       // reachExit(true);
 
     }
-  }, [activeTile])
+  }, [tilePosition])
 
   return (
     <div className="exit level-one"></div>
