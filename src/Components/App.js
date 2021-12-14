@@ -32,7 +32,7 @@ const App = () => {
     <div className="app">
       {!gameStarted && <LandingPage startGame={startGame} />}
       {gameStarted && <header className="app-header">Escape the House!</header>}
-      {gameStarted && <TileContainer endGame={endGame}/>}
+      {gameStarted && <TileContainer resetGame={endGame}/>}
       {gameStarted && <Counter />}
     </div>
   )

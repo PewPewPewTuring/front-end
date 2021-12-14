@@ -8,7 +8,7 @@ import { moveUp, moveRight, moveDown, moveLeft, addToStepCount } from '../../act
 
 export let tilePosition = 0;
 
-const TileContainer = ({ reachExit }) => {
+const TileContainer = ({ reachExit, resetGame }) => {
   const activeTile = useSelector(state => state.activeTile)
   tilePosition = activeTile
   const stepCount = useSelector(state => state.stepCount)
@@ -83,22 +83,22 @@ const TileContainer = ({ reachExit }) => {
       }
   }
   return (
-    <main className='overlay-container' >
-      {!levelOneComplete &&
-        <div className='overlay-tile-grid' >
-          {allTiles}
-        </div>
-      }
-      {levelOneComplete &&
-        <div className="score-card">
-          <p>Way to go!</p>
-          <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
-          <p>Spaces moved: {stepCount}</p>
-          <p><button className="reset-game" id="resetGame" onClick={endGame}>SUBMIT & RESTART</button></p>
-        </div>
-      }
-    </main>
-  )
+      <main className="overlay-container" >
+        {!levelOneComplete &&
+          <div className="overlay-tile-grid" >
+            {allTiles}
+          </div>
+        }
+        {levelOneComplete &&
+          <div className="score-card">
+            <p>Way to go!</p>
+            <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
+            <p>Spaces moved: {stepCount}</p>
+            <p><button className="reset-game" id="resetGame" onClick={resetGame}>SUBMIT & RESTART</button></p>
+          </div>
+        }
+      </main>
+    )
 }
 
 
