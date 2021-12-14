@@ -16,4 +16,10 @@ describe('Landing Page', () => {
     cy.get('.leaderboard-header').last().contains('Score')
     // Possibly iterate through each table element and check whether it has a name and score
   })
+
+  it('User should be able to enter their name into a player name text input field', () => {
+    cy.get('label').contains('Player Name')
+    cy.get('#player_name').type('Rick')
+    cy.get('#player_name').should('have.value', 'Rick')
+  })
 })
