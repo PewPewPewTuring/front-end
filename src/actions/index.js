@@ -36,6 +36,27 @@ export const completeLevelOne = () => {
     type: 'LEVEL_ONE_COMPLETE'
   }
 }
+
+export const updateLeaderBoard = (leaders) => {
+  return {
+    type: 'GET_LEADER_BOARD',
+    payload: leaders
+  }
+}
+
+export const updateCurrentPlayer = (name) => {
+  return {
+    type: 'CURRENT_PLAYER',
+    payload: name
+  }
+}
+
+export const updateFinalTime = (time) => {
+  return {
+    type: 'FINAL_TIME',
+    payload: time
+  }
+}
  
 export const getTileInfo = (tilePoints) => {
  return {
