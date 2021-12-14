@@ -22,10 +22,6 @@ const TileContainer = ({ reachExit, endGame }) => {
     }
   }, [activeStep])
 
-  const resetGame = () => {
-    document.location.reload();
-  }
-
   const handleKeyDown = ({ key, code }) => {
     console.log(tilePosition);
     if (key === 'ArrowUp' && tilePosition > 14) {
@@ -81,7 +77,7 @@ const TileContainer = ({ reachExit, endGame }) => {
           <p>Way to go!</p>
           <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
           <p>Spaces moved: {stepCount}</p>
-          <p><button className="reset-game" id="resetGame" onClick={resetGame}>SUBMIT & RESTART</button></p>
+          <p><button className="reset-game" id="resetGame" onClick={endGame}>SUBMIT & RESTART</button></p>
         </div>
       }
     </main>

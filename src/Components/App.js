@@ -21,7 +21,7 @@ const App = () => {
   }
 
   const endGame = () => {
-    setGameStarted(false);
+    document.location.reload();
   }
 
   useEffect(() => {
