@@ -17,7 +17,7 @@
   grid-auto-rows: 3rem;
   grid-gap: 0px;
   justify-content: center;
-  /* opacity: 30%; */
+  opacity: 30%;
 }
 
 .score-card {

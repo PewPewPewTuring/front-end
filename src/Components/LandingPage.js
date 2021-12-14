@@ -39,7 +39,7 @@ const LandingPage = ({ startGame }) => {
       <div className="name-form">
         <form>
           <label for="player_name">Player Name:</label><br></br>
-          <input type="text" id="player_name" name="player_name"  onChange={(e) => handleChange(e.target)} value={currentPlayer} ></input><br></br>
+          <input type="text" id="player_name" name="player_name"  onChange={(e) => handleChange(e.target)} value={currentPlayer} placeholder="Enter name to start"></input><br></br>
           <button className="start-game-button" value="Start" onClick={startGame}>START!</button><br></br>
         </form>
       </div>

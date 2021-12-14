@@ -10,7 +10,7 @@ import { submitGame } from '../../apiCalls/apiCalls';
 export let tilePosition = 0;
 export let direction = 'right';
 
-const TileContainer = ({ reachExit, resetGame }) => {
+const TileContainer = ({ reachExit }) => {
   const activeTile = useSelector(state => state.activeTile)
   tilePosition = activeTile
   const stepCount = useSelector(state => state.stepCount)
