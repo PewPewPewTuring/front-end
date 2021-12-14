@@ -23,3 +23,5 @@ describe('Landing Page', () => {
     cy.get('#player_name').should('have.value', 'Rick')
   })
 })
+
+// "react-scripts start"
