@@ -132,11 +132,9 @@ The following section displays a comparison of our vision and how our vision cam
 
 <tr align = 'center'>
   <td style = 'width:45%'>  
-   wireframe here
     <img src="https://user-images.githubusercontent.com/78382113/146269084-a4922188-550f-4166-a58b-12d352de76d9.png" style="height:225px">
   </td>
   <td style = 'width:45%'>  
-    production here
     <img src="https://user-images.githubusercontent.com/78382113/146268331-934f67de-732f-42ef-bcc4-7b0a71a8a5b5.png" style="height:225px">
   </td>
 </tr>
