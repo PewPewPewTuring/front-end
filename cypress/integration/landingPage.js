@@ -22,6 +22,12 @@ describe('Landing Page', () => {
     cy.get('#player_name').type('Rick')
     cy.get('#player_name').should('have.value', 'Rick')
   })
+
+  it('User should be able to click the start button and the game board will appear', () => {
+    cy.get('.start-game-button').click()
+    cy.wait(2000)
+    cy.get('.overlay-container').should('be.visible')
+  })
 })
 
 // "react-scripts start"
