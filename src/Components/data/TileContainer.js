@@ -8,6 +8,7 @@ import { moveUp, moveRight, moveDown, moveLeft, addToStepCount } from '../../act
 import { submitGame } from '../../apiCalls/apiCalls';
 
 export let tilePosition = 0;
+export let direction = 'right';
 
 const TileContainer = ({ reachExit }) => {
   const activeTile = useSelector(state => state.activeTile)
@@ -60,6 +61,7 @@ const TileContainer = ({ reachExit }) => {
       if (!walls.includes(tilePosition + 1)) {
         dispatch(moveRight())
         dispatch(addToStepCount())
+        direction = 'right';
         // tilePosition += 1;
         // setActiveStep(prevActiveStep => prevActiveStep + 1)
         // setStepCount(stepCount => stepCount + 1);
@@ -76,6 +78,7 @@ const TileContainer = ({ reachExit }) => {
       if (!walls.includes(tilePosition - 1)) {
         dispatch(moveLeft())
         dispatch(addToStepCount())
+        direction = 'left'
         // tilePosition -= 1;
         // setActiveStep(prevActiveStep => prevActiveStep - 1)
         // setStepCount(stepCount => stepCount + 1);
@@ -96,26 +99,26 @@ const TileContainer = ({ reachExit }) => {
       } else if (i === 47 || i === 42 || i === 108 || i === 123 || i === 130 || i === 165 || i === 179){
         allTiles.push(<Breakaway />)
       } else {
-        allTiles.push(<Tile id={i} key={i} />)
+        allTiles.push(<Tile id={i} key={i} direction={direction}/>)
       }
   }
   return (
-    <main className='overlay-container' >
-      {!levelOneComplete &&
-        <div className='overlay-tile-grid' >
-          {allTiles}
-        </div>
-      }
-      {levelOneComplete &&
-        <div className="score-card">
-          <p>Way to go!</p>
-          <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
-          <p>Spaces moved: {stepCount}</p>
-          <p><button className="reset-game" id="resetGame" onClick={resetGame}>SUBMIT & RESTART</button></p>
-        </div>
-      }
-    </main>
-  )
+      <main className="overlay-container" >
+        {!levelOneComplete &&
+          <div className="overlay-tile-grid" >
+            {allTiles}
+          </div>
+        }
+        {levelOneComplete &&
+          <div className="score-card">
+            <p>Way to go!</p>
+            <p>You escaped this room in {document.getElementById('counterNumber').innerText} seconds!</p>
+            <p>Spaces moved: {stepCount}</p>
+            <p><button className="reset-game" id="resetGame" onClick={resetGame}>SUBMIT & RESTART</button></p>
+          </div>
+        }
+      </main>
+    )
 }
 
 

@@ -21,11 +21,13 @@ const App = () => {
 
   const startGame = (event) => {
     event.preventDefault();
-    setGameStarted(true);
+    if (document.getElementById('player_name').value) {
+      setGameStarted(true);
+    }
   }
 
   const endGame = () => {
-    setGameStarted(false);
+    document.location.reload();
   }
 
   useEffect(async() => {
@@ -42,7 +44,7 @@ const App = () => {
     <div className="app">
       {!gameStarted && <LandingPage startGame={startGame} />}
       {gameStarted && <header className="app-header">Escape the House!</header>}
-      {gameStarted && <TileContainer endGame={endGame}/>}
+      {gameStarted && <TileContainer resetGame={endGame}/>}
       {gameStarted && <Counter />}
     </div>
   )
