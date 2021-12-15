@@ -42,5 +42,8 @@
     "@cypress/code-coverage": "^3.9.12",
     "@cypress/instrument-cra": "^1.4.0",
     "cypress": "^9.1.1"
+  },
+  "nyc": {
+    "exclude": ["/Users/loganvincent/turing/mod-4/projects/pew-fe/src/reportWebVitals.js", "/Users/loganvincent/turing/mod-4/projects/pew-fe/src/Components/OverlayTile.js", "/Users/loganvincent/turing/mod-4/projects/pew-fe/src/Components/Overlay.js"]
   }
 }
