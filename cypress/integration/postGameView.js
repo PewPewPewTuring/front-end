@@ -6,4 +6,6 @@ describe('Game Board', () => {
     cy.wait(1000)
   })
 
-})
+  
+
+})   
